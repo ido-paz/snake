@@ -1,0 +1,149 @@
+/* Main styling for the Snake game with responsive design */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.game-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 95%;
+    width: 600px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.snake-icon {
+    margin-right: 10px;
+    animation: spiral 8s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes spiral {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.snake-icon svg path {
+    animation: snakeColor 6s ease-in-out infinite;
+}
+
+@keyframes snakeColor {
+    0%, 100% { stroke: #4CAF50; }
+    50% { stroke: #2E7D32; }
+}
+
+h1 {
+    color: #333;
+}
+
+
+
+#gameCanvas {
+    /* Earth-like texture background */
+    background-color:brown; 
+    border: 20px solid #5D4037; 
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+}
+
+
+.score-container {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.instructions {
+    margin-top: 15px;
+    color: #555;
+}
+
+#restartButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#restartButton:hover {
+    background-color: #3e8e41;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .snake-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .score-container {
+        font-size: 1.2rem;
+    }
+    
+    .instructions {
+        font-size: 0.9rem;
+    }
+    
+    #gameCanvas {
+        background-size: 15px 15px, 22px 22px, 15px 15px, 18px 18px, 30px 30px, 30px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .snake-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+    
+    #restartButton {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    #gameCanvas {
+        background-size: 10px 10px, 15px 15px, 10px 10px, 12px 12px, 20px 20px, 20px 20px;
+    }
+}
